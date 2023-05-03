@@ -6,8 +6,8 @@ import About from "./components/pages/About.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import Signup from "./components/pages/Signup.jsx";
 import Profile from "./components/pages/Profile.jsx";
-import Login from "./components/pages/Login.jsx";
-import CreateBlog from "./components/pages/CreateBlog.jsx";
+import Login from "./components/Login/Login.jsx";
+import CreateBlog from "./components/Blogs/CreateBlog.jsx";
 
 function App() {
     return (
