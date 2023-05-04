@@ -22,8 +22,8 @@ const MyBlog = ({ token }) => {
     }, [token]);
 
     return (
-        <div>
-            <h2>My Blog</h2>
+        <div className="myblog">
+            <h1>My Blog</h1>
             <div className="blog-container">
                 {posts.map((post) => (
                     <div key={post.id} className="blog-card">
