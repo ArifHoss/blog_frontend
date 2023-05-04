@@ -1,11 +1,56 @@
+/* UserDetails.css */
 .user-details {
-    /* Add any styles for the container here */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: Arial, sans-serif;
 }
 
 .user-details h2 {
-    /* Add any styles for the heading here */
+  color: #4a47a3;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.user-details p {
-    /* Add any styles for the text here */
+.user_details {
+  background: linear-gradient(135deg, #4a47a3, #8e44ad);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  padding: 1.5rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.user_details h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.user_details p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.token_container {
+  background: linear-gradient(135deg, #3498db, #9b59b6);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  padding: 1.5rem;
+  width: 80%;
+}
+
+.token_container h4 {
+  font-size: 1.5rem;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .user_details,
+  .token_container {
+    width: 90%;
+  }
 }

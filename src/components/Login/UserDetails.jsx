@@ -1,20 +1,20 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import './UserDetails.css';
 
-// eslint-disable-next-line react/prop-types
 const UserDetails = ({ token, user }) => {
     return (
         <div className="user-details">
-            <h2>User Details</h2>
-            <ul>
-                <li>Token {token}</li>
-                <li>Token {token}</li>
-            </ul>
+            <h2>User Details page</h2>
+            <div className="user_details">
+                <h4>Name:  {user.first_name} {user.last_name}</h4>
+                <p>Email:  {user.email}</p>
+                <p>Roles: {user.roles}</p>
+                <p>Post IDs: {user.blogposts}</p>
+            </div>
 
-            <p><strong>Name:</strong> {user.name}</p>
-            {/* eslint-disable-next-line react/prop-types */}
-            <p><strong>Email:</strong> {user.email}</p>
+            <div className="token_container">
+                <h4>Token {token}</h4>
+            </div>
         </div>
     );
 };
