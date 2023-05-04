@@ -15,7 +15,7 @@ const Login = ({ token, setToken, user, setUser }) => {
             const response = await loginUser(email, password);
             console.log(JSON.stringify(response.data.jwttoken));
             console.log(JSON.stringify(response.data.user));
-            setToken(JSON.stringify(response.data.jwttoken));
+            setToken(response.data.jwttoken);
             setUser(JSON.stringify(response.data.user));
             if (response.status === 200) {
                 console.log('Login successful');
@@ -25,37 +25,6 @@ const Login = ({ token, setToken, user, setUser }) => {
             console.log(error);
         }
     }
-
-
-    // async function handleLogin() {
-    //     const data = JSON.stringify({
-    //         email: email,
-    //         password: password,
-    //     });
-    //
-    //     const config = {
-    //         method: 'post',
-    //         maxBodyLength: Infinity,
-    //         url: 'http://localhost:8080/api/v1/users/auth',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         data: data,
-    //     };
-    //
-    //     try {
-    //         const response = await axios.request(config);
-    //         console.log(JSON.stringify(response.data.jwttoken));
-    //         setToken(JSON.stringify(response.data.jwttoken));
-    //         setUser(JSON.stringify(response.data.user));
-    //         if (response.status === 200) {
-    //             console.log('Login successful');
-    //             setLoggedIn(true); // Update loggedIn state
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 
     return (
         <div>

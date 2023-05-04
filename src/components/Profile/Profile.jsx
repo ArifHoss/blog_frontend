@@ -10,8 +10,9 @@ const Profile = ({ token, user }) => {
             <div className="user_details">
                 <h4>Name:  {user.first_name} {user.last_name}</h4>
                 <p>Email:  {user.email}</p>
-                <p>Roles: {user.roles}</p>
-                <p>Post IDs: {user.blogposts}</p>
+                <p>Roles: {user.roles.join(', ')}</p>
+                <p>Post IDs: {user.blogposts.join(', ')}<button>Show my post</button></p>
+
             </div>
 
             <div className="token_container">
