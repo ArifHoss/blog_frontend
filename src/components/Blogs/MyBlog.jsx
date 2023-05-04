@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './MyBlog.css';
-import {getAllPost} from "../Api/getAllPost.jsx";
+import { getAllPost } from '../Api/getAllPost.jsx';
 
 // eslint-disable-next-line react/prop-types
-const MyBlog = ({ token }) => { // Add token as a prop
+const MyBlog = ({ token }) => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const MyBlog = ({ token }) => { // Add token as a prop
 
     return (
         <div>
-            <h2>My Blog page</h2>
+            <h2>My Blog</h2>
             <div className="blog-container">
                 {posts.map((post) => (
                     <div key={post.id} className="blog-card">
