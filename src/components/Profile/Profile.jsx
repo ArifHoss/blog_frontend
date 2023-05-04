@@ -1,10 +1,12 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import './UserDetails.css';
+import './Profile.css';
 
-const UserDetails = ({ token, user }) => {
+// eslint-disable-next-line react/prop-types
+const Profile = ({ token, user }) => {
     return (
         <div className="user-details">
-            <h2>User Details page</h2>
+            <h2>User Profile page</h2>
             <div className="user_details">
                 <h4>Name:  {user.first_name} {user.last_name}</h4>
                 <p>Email:  {user.email}</p>
@@ -19,4 +21,4 @@ const UserDetails = ({ token, user }) => {
     );
 };
 
-export default UserDetails;
+export default Profile;
