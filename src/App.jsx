@@ -21,7 +21,8 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/create" element={<CreateBlog />} />
+                {/* eslint-disable-next-line no-undef */}
+                <Route path="/create" element={token && <CreateBlog token={token}/>} />
                 <Route path="/myblog" element={token && <MyBlog token={token}/>} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login token={token} setToken={setToken} user={user} setUser={setUser} />}/>

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './MyBlog.css';
-import { getAllPost } from '../Api/getAllPost.jsx';
+import { postApi } from '../Api/postApi.jsx';
 
 // eslint-disable-next-line react/prop-types
 const MyBlog = ({ token }) => {
@@ -10,7 +10,7 @@ const MyBlog = ({ token }) => {
     useEffect(() => {
         async function fetchPosts() {
             try {
-                const response = await getAllPost(token);
+                const response = await postApi(token);
                 console.log(response.data);
                 setPosts(response.data);
             } catch (error) {
