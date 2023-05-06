@@ -5,10 +5,10 @@ import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
 
 // eslint-disable-next-line react/prop-types
-const Login = ({ token, setToken, user, setUser }) => {
+const Login = ({ token, setToken, user, setUser, loggedIn, setLoggedIn }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
+    //const [loggedIn, setLoggedIn] = useState(false);
 
     async function handleLogin() {
         try {

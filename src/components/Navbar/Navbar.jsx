@@ -1,7 +1,15 @@
 import classes from "./Navbar.module.css";
 import {Link} from "react-router-dom";
 
-const Navbar = () => {
+// eslint-disable-next-line react/prop-types
+const Navbar = ({loggedIn,onLogout}) => {
+
+    const handleLogoutClick = (e) => {
+        e.preventDefault();
+        onLogout();
+    };
+
+
     return (
         <nav className={classes.navbar}>
             <div className={classes.leftLinks}>
@@ -14,12 +22,21 @@ const Navbar = () => {
 
             <div className={classes.rightLinks}>
                 <ul>
-                    <li><Link to="/create">Create Blog</Link></li>
-                    <li><Link to="/myblog">My Blog</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/signup">Signup</Link></li>
-                    <li><Link to="/profile">Profile</Link></li>
+                    {!loggedIn && (
+                        <>
+                            <li><Link to="/login">Login</Link></li>
+                            <li><Link to="/signup">Signup</Link></li>
+                        </>
+                    )}
+                    {loggedIn && (
+                        <>
+                            <li><Link to="/create">Create Blog</Link></li>
+                            <li><Link to="/myblog">My Blog</Link></li>
+                            <li><Link to="/profile">Profile</Link></li>
+                            <li><a href="/" onClick={handleLogoutClick}>Logout</a></li>
+                        </>
+                    )}
                 </ul>
             </div>
         </nav>
