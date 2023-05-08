@@ -50,9 +50,6 @@ const MyBlog = ({token}) => {
         <div className="blog_container">
             <div>
                 {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
-                {/*<h1>Create Blog</h1>*/}
-                {/*<CreateBlog token={token}/>*/}
-                {/*{newBlog && <CreateBlog token={token} newBlog={newBlog} setNewBlog={setNewBlog}/> }*/}
                 {newBlog && <CreateBlog token={token} onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/> }
             </div>
             <div className="myblog">

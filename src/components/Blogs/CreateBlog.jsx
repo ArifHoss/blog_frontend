@@ -20,6 +20,7 @@ const CreateBlog = ({token, onCancel, onSaveBlog}) => {
 
             setTitle(response.data.title);
             setContent(response.data.content);
+            onSaveBlog(response.data);
             console.log(response.data);
             console.log('Post created successfully!')
         } catch (error) {
@@ -27,11 +28,6 @@ const CreateBlog = ({token, onCancel, onSaveBlog}) => {
             console.log('Error creating post. Please try again.')
         }
     };
-
-    // const stopHanleSubmit = () => {
-    //     setNewBlog(false);
-    // }
-
 
     return (
         <div className="create-post">
