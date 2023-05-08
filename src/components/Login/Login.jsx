@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Login.css';
 import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Login = ({ token, setToken, user, setUser, loggedIn, setLoggedIn }) => {
@@ -10,6 +11,7 @@ const Login = ({ token, setToken, user, setUser, loggedIn, setLoggedIn }) => {
     const [password, setPassword] = useState('');
     //const [loggedIn, setLoggedIn] = useState(false);
 
+    const navigate = useNavigate();
     async function handleLogin() {
         try {
             const response = await loginUser(email, password);
@@ -20,6 +22,7 @@ const Login = ({ token, setToken, user, setUser, loggedIn, setLoggedIn }) => {
             if (response.status === 200) {
                 console.log('Login successful');
                 setLoggedIn(true);
+                navigate('/MyBlog');
             }
         } catch (error) {
             console.log(error);

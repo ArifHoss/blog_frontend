@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState} from "react";
 import './App.css'
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Home from "./components/pages/Home.jsx";
 import MyBlog from "./components/Blogs/MyBlog.jsx";
@@ -16,10 +16,12 @@ function App() {
     const [user, setUser] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
 
+    const navigate = useNavigate();
     const handleLogout = () => {
         setLoggedIn(false);
         // Clear the token or user data from localStorage or any other storage you're using.
         localStorage.removeItem('token');
+        navigate("/");
     };
 
     return (
