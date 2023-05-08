@@ -1,0 +1,93 @@
+/* Login.css */
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+}
+
+input {
+    width: 80%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input:focus {
+    border-color: #4a4a4a;
+}
+
+button {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #8e44ad;
+    background-color: #3498db;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #535bf2;
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    input {
+        width: 90%;
+    }
+
+    button {
+        width: 90%;
+    }
+}
+
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+    input {
+        width: 70%;
+    }
+
+    button {
+        width: 70%;
+    }
+}
+
+/* Laptop and big monitor styles */
+@media (min-width: 1025px) {
+    .container {
+        width: 200%;
+        max-width: 1280px;
+        justify-content: center;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    input {
+        width: 80%;
+    }
+
+    button {
+        width: 50%;
+    }
+}

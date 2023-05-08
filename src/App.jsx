@@ -23,7 +23,7 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <div className="app">
             <Navbar loggedIn={loggedIn} onLogout={handleLogout}/>
             <Routes>
                 <Route path="/" element={<Home />} />

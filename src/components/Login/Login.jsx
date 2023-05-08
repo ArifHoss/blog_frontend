@@ -27,7 +27,8 @@ const Login = ({ token, setToken, user, setUser, loggedIn, setLoggedIn }) => {
     }
 
     return (
-        <div>
+        // eslint-disable-next-line no-undef
+        <div className="container">
             {!loggedIn ? (
                 <>
                     <h1>Login</h1>
