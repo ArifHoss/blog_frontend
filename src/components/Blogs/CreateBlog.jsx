@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {createPost} from "../Api/postApi.jsx";
 import './CreateBlog.css';
 
 // eslint-disable-next-line react/prop-types
-const CreateBlog = ({token}) => {
+const CreateBlog = ({token, onCancel, onSaveBlog}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const handleSubmit = async (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
         try {
@@ -28,11 +28,15 @@ const CreateBlog = ({token}) => {
         }
     };
 
+    // const stopHanleSubmit = () => {
+    //     setNewBlog(false);
+    // }
+
 
     return (
         <div className="create-post">
             <h1>Create a New Post</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={submitHandler}>
                 <div className="form-group">
                     <label htmlFor="title">Title</label>
                     <input
@@ -52,8 +56,14 @@ const CreateBlog = ({token}) => {
                         required
                     ></textarea>
                 </div>
-                <button type="submit">Create Post</button>
+                <div>
+                    <button type="submit">Create Post</button>
+                </div>
+                <div>
+                    <button type="submit" onClick={onCancel}>cancel</button>
+                </div>
             </form>
+
         </div>
     );
 }

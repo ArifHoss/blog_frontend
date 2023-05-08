@@ -9,10 +9,6 @@ const MyBlog = ({token}) => {
     const [posts, setPosts] = useState([]);
     const [newBlog, setNewBlog] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setNewBlog(true);
-    }
 
     useEffect(() => {
         async function fetchPosts() {
@@ -28,13 +24,36 @@ const MyBlog = ({token}) => {
         fetchPosts();
     }, [token]);
 
+
+    const handleBlogSubmit = () => {
+        setNewBlog(true);
+    }
+
+    const handleStopBlogSubmit = () => {
+        setNewBlog(false);
+    }
+
+    const saveBlog = (enteredBlogData) => {
+        const blogData = {
+            ...enteredBlogData,
+            id: Math.random().toString()
+        };
+        console.log(blogData);
+        setPosts((prevPosts) => {
+            return [blogData, ...prevPosts];
+        });
+        setNewBlog(false);
+    }
+
+
     return (
         <div className="blog_container">
             <div>
-                <button type="submit" onClick={handleSubmit}>Add New Blog</button>
+                {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
                 {/*<h1>Create Blog</h1>*/}
                 {/*<CreateBlog token={token}/>*/}
-                {newBlog && <CreateBlog token={token}/> }
+                {/*{newBlog && <CreateBlog token={token} newBlog={newBlog} setNewBlog={setNewBlog}/> }*/}
+                {newBlog && <CreateBlog token={token} onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/> }
             </div>
             <div className="myblog">
                 <h1>My Blog</h1>
