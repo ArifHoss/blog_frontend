@@ -52,12 +52,14 @@ const CreateBlog = ({token, onCancel, onSaveBlog}) => {
                         required
                     ></textarea>
                 </div>
-                <div>
-                    <button type="submit">Create Post</button>
-                </div>
-                <div>
-                    <button type="submit" onClick={onCancel}>cancel</button>
-                </div>
+               <div className="button_container">
+                   <div>
+                       <button type="submit">Create Post</button>
+                   </div>
+                   <div>
+                       <button type="submit" onClick={onCancel}>cancel</button>
+                   </div>
+               </div>
             </form>
 
         </div>
