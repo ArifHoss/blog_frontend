@@ -31,7 +31,7 @@ const Navbar = ({loggedIn,onLogout}) => {
                     )}
                     {loggedIn && (
                         <>
-                            <li><Link to="/create">Create Blog</Link></li>
+                            {/*<li><Link to="/create">Create Blog</Link></li>*/}
                             <li><Link to="/myblog">My Blog</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
                             <li><a href="/" onClick={handleLogoutClick}>Logout</a></li>
