@@ -8,7 +8,9 @@ const Profile = ({ token, user }) => {
         <div className="user-details">
             <h2>User Profile page</h2>
             <div className="user_details">
+                {/* eslint-disable-next-line react/prop-types */}
                 <h4>Name:  {user.first_name} {user.last_name}</h4>
+                {/* eslint-disable-next-line react/prop-types */}
                 <p>Email:  {user.email}</p>
                 <p>Roles: {user.roles.join(', ')}</p>
                 <p>Post IDs: {user.blogposts.join(', ')}<button>Show my post</button></p>

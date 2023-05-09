@@ -21,7 +21,7 @@ function App() {
         setLoggedIn(false);
         // Clear the token or user data from localStorage or any other storage you're using.
         localStorage.removeItem('token');
-        navigate("/");
+        navigate("/login");
     };
 
     return (
