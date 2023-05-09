@@ -61,7 +61,7 @@
 
 /* Mobile styles */
 @media (max-width: 767px) {
-    title {
+    .title {
         font-size: xx-small;
     }
 
@@ -69,15 +69,15 @@
 
 /* iPad styles */
 @media (min-width: 768px) and (max-width: 1024px) {
-    title {
-        font-size: xxx-large;
+    .title {
+        font-size: medium;
     }
 
 }
 
 /* Laptop and big monitor styles */
 @media (min-width: 1025px) {
-    title {
+    .title {
        font-size: xxx-large;
     }
 }
