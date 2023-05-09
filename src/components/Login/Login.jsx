@@ -4,14 +4,6 @@ import './Login.css';
 import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
 import {useNavigate} from "react-router-dom";
-import Signup from "../pages/Signup.jsx";
-
-function handleSignup() {
-    console.log('Signup');
-    // eslint-disable-next-line no-undef
-    return <Signup/>;
-}
-
 
 // eslint-disable-next-line react/prop-types
 const Login = ({token, setToken, user, setUser, loggedIn, setLoggedIn}) => {
@@ -60,7 +52,7 @@ const Login = ({token, setToken, user, setUser, loggedIn, setLoggedIn}) => {
                         <button onClick={handleLogin}>Login</button>
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
                         <p>Don't have an account?</p>
-                        <button onClick={handleSignup}>Signup</button>
+                        <button onClick={() => navigate("/signup")}>Signup</button>
                     </div>
                 </>
             ) : (
