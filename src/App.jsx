@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import Home from "./components/pages/Home.jsx";
 import MyBlog from "./components/Blogs/MyBlog.jsx";
 import Contact from "./components/pages/Contact.jsx";
-import Signup from "./components/pages/Signup.jsx";
+import Signup from "./components/signup/Signup.jsx";
 import Login from "./components/Login/Login.jsx";
 import CreateBlog from "./components/Blogs/CreateBlog.jsx";
 import Profile from "./components/Profile/Profile.jsx";
