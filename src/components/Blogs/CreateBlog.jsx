@@ -1,12 +1,25 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {createPost} from "../Api/postApi.jsx";
 import './CreateBlog.css';
+
 
 // eslint-disable-next-line react/prop-types
 const CreateBlog = ({token, onCancel, onSaveBlog}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [userId, setUserId] = useState(0);
+
+    useEffect(() => {
+        // console.log(user);
+        const user = JSON.parse(localStorage.getItem('user'));
+        setUserId(user.id);
+        console.log(user.id);
+    }, [])
+
+    useEffect(() => {
+        console.log(userId);
+    }, [userId]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -14,13 +27,16 @@ const CreateBlog = ({token, onCancel, onSaveBlog}) => {
         try {
             const post = {
                 title,
-                content
+                content,
+                author: userId
             };
             const response = await createPost(token, post);
 
             setTitle(response.data.title);
             setContent(response.data.content);
             onSaveBlog(response.data);
+            // console.log(response.author);
+            // console.log(userId);
             console.log(response.data);
             console.log('Post created successfully!')
         } catch (error) {
@@ -28,6 +44,7 @@ const CreateBlog = ({token, onCancel, onSaveBlog}) => {
             console.log('Error creating post. Please try again.')
         }
     };
+
 
     return (
         <div className="create-post">
@@ -52,14 +69,14 @@ const CreateBlog = ({token, onCancel, onSaveBlog}) => {
                         required
                     ></textarea>
                 </div>
-               <div className="button_container">
-                   <div>
-                       <button type="submit">Create Post</button>
-                   </div>
-                   <div>
-                       <button type="submit" onClick={onCancel}>cancel</button>
-                   </div>
-               </div>
+                <div className="button_container">
+                    <div>
+                        <button type="submit">Create Post</button>
+                    </div>
+                    <div>
+                        <button type="submit" onClick={onCancel}>cancel</button>
+                    </div>
+                </div>
             </form>
 
         </div>

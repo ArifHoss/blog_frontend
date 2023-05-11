@@ -10,8 +10,8 @@
 .button_container {
     display: flex;
     justify-content: space-around;
-
 }
+
 .button_container button {
     width: auto;
     padding: 0.5rem;
@@ -22,7 +22,6 @@
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
 }
-
 
 .create-post h1 {
     font-size: 2rem;
@@ -71,4 +70,34 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #1976d2;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+    .create-post {
+        max-width: 90%;
+    }
+
+    .button_container {
+        flex-direction: column;
+    }
+
+    .button_container button {
+        margin-bottom: 1rem;
+    }
+
+    .create-post h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group label,
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem;
+    }
+
+    button[type="submit"] {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
 }

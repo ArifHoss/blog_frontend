@@ -52,13 +52,18 @@ const MyBlog = ({token}) => {
                 {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
                 {newBlog && <CreateBlog token={token} onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/> }
             </div>
-            <div className="myblog">
-                <h1>My Blog</h1>
+            <div className="allblog">
+                <h1>All Blog</h1>
                 <div className="myblog-container">
                     {posts.map((post) => (
                         <div key={post.id} className="blog-card">
                             <h3>{post.title}</h3>
                             <p>{post.content}</p>
+                            <ul>
+                                <li>{post.author}</li>
+                                <li>{post.date}</li>
+                                <li>{post.date}</li>
+                            </ul>
                         </div>
                     ))}
                 </div>

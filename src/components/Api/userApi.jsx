@@ -24,6 +24,28 @@ export const loginUser = async (email, password) => {
     }
 };
 
+
+export const getUser = async (token) => {
+
+    const config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: 'http://localhost:8080/api/v1/users/auth',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+        },
+    };
+
+    try {
+        // eslint-disable-next-line no-unreachable
+        console.log('getUser: ' + JSON.stringify(config));
+        return await axios.request(config);
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+
+};
 export const createUser = async (firstName, lastName, email, password) => {
     const data = JSON.stringify({
         first_name: firstName,
