@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { createContext, useState } from 'react';
+import './AuthContext.css';
 
 export const AuthContext = createContext();
 
@@ -11,10 +12,10 @@ export const AuthProvider = ({ children }) => {
     const [userId, setUserId] = useState(0);
 
     return (
+        <div className="auth_context">
         <AuthContext.Provider value={{ token, setToken, user, setUser, loggedIn, setLoggedIn, userId, setUserId }}>
             {children}
         </AuthContext.Provider>
+        </div>
     );
 };
-
-export default AuthProvider;

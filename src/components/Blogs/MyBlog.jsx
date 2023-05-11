@@ -51,9 +51,9 @@ const MyBlog = () => {
 
     return (
         <div className="blog_container">
-            <div>
+            <div className="allblog">
                 {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
-                {newBlog && <CreateBlog token={token} onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/> }
+                {newBlog && <CreateBlog onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/> }
             </div>
             <div className="allblog">
                 <h1>All Blog</h1>

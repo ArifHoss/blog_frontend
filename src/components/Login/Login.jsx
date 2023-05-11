@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {AuthContext} from "../Api/AuthContext.jsx";
 
 const Login = () => {
-    const { token, setToken, user, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
+    const { token, setToken, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -57,9 +57,7 @@ const Login = () => {
             ) : (
                 <div>
                     {/* Use the UserDetails component to display the user details */}
-                    {token && (
-                        <Profile token={token} user={JSON.parse(user)}/>
-                    )}
+                    {token && <Profile/>}
                 </div>
             )}
         </div>
