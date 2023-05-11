@@ -1,16 +1,15 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './Login.css';
 import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../Api/AuthContext.jsx";
 
-// eslint-disable-next-line react/prop-types
-const Login = ({token, setToken, user, setUser, loggedIn, setLoggedIn}) => {
+const Login = () => {
+    const { token, setToken, user, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //const [loggedIn, setLoggedIn] = useState(false);
-
     const navigate = useNavigate();
 
     async function handleLogin() {

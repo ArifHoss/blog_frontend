@@ -1,8 +1,12 @@
 import classes from "./Navbar.module.css";
 import {Link} from "react-router-dom";
+import {AuthContext} from "../Api/AuthContext.jsx";
+import {useContext} from "react";
 
 // eslint-disable-next-line react/prop-types
-const Navbar = ({loggedIn,onLogout}) => {
+const Navbar = () => {
+
+    const {loggedIn, onLogout} = useContext(AuthContext);
 
     return (
         <nav className={classes.navbar}>

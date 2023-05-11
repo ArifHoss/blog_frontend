@@ -1,11 +1,14 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './MyBlog.css';
 import {postApi} from '../Api/postApi.jsx';
 import CreateBlog from "./CreateBlog.jsx";
+import {AuthContext} from "../Api/AuthContext.jsx";
 
 // eslint-disable-next-line react/prop-types
-const MyBlog = ({token}) => {
+const MyBlog = () => {
+
+    const {token} = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [newBlog, setNewBlog] = useState(false);
 

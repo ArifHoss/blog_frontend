@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useEffect, useState} from "react";
-import './App.css'
-import {Route, Routes, useNavigate} from "react-router-dom";
+import React, {useEffect, useContext} from "react";
+import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Home from "./components/pages/Home.jsx";
 import MyBlog from "./components/Blogs/MyBlog.jsx";
@@ -11,17 +10,15 @@ import Login from "./components/Login/Login.jsx";
 import CreateBlog from "./components/Blogs/CreateBlog.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 
+import PleaseLogIn from "./components/Login/PleaseLogIn.jsx";
+import {AuthContext} from "./components/Api/AuthContext.jsx";
+
 function App() {
-    const [token, setToken] = useState('');
-    const [user, setUser] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [userId, setUserId] = useState(0); // eslint-disable-line no-unused-vars
-
-
+    const { token, user, loggedIn, setLoggedIn, userId, setUserId } = useContext(AuthContext);
     const navigate = useNavigate();
+
     const handleLogout = () => {
         setLoggedIn(false);
-        // Clear the token or user data from localStorage or any other storage you're using.
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         navigate("/login");
@@ -38,7 +35,6 @@ function App() {
         }
     }, [loggedIn, user]);
 
-
     useEffect(() => {
         console.log(userId)
     }, [userId]);
@@ -47,16 +43,15 @@ function App() {
         <div className="app">
             <Navbar loggedIn={loggedIn} onLogout={handleLogout}/>
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/create" element={token && <CreateBlog token={token}/>}/>
-                <Route path="/myblog" element={token && <MyBlog token={token}/>}/>
-                <Route path="/contact" element={<Contact/>}/>
-                <Route path="/login"
-                       element={<Login token={token} setToken={setToken} user={user} setUser={setUser}
-                                                     loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>}/>
-                <Route path="/signup" element={<Signup/>}/>
-                <Route path="/profile" element={token && (<Profile token={token} user={JSON.parse(user)}/>)}/>
+                <Route path="/" element={<Home />} />
+                <Route path="/create" element={token ? <CreateBlog /> : <PleaseLogIn />} />
+                <Route path="/myblog" element={token ? <MyBlog /> : <PleaseLogIn />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={!loggedIn ? <Login /> : <Navigate to="/" />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/profile" element={token ? <Profile /> : <PleaseLogIn />} />
             </Routes>
+
         </div>
     );
 }

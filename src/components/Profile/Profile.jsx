@@ -1,9 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, {useContext} from 'react';
 import './Profile.css';
+import {AuthContext} from "../Api/AuthContext.jsx";
 
 // eslint-disable-next-line react/prop-types
-const Profile = ({ token, user }) => {
+const Profile = () => {
+
+    const {token, user} = useContext(AuthContext);
     return (
         <div className="user-details">
             <h2>User Profile page</h2>
