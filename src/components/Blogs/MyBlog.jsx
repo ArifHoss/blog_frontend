@@ -13,6 +13,8 @@ const MyBlog = () => {
     const [newBlog, setNewBlog] = useState(false);
 
 
+
+
     useEffect(() => {
         async function fetchPosts() {
             try {
@@ -23,7 +25,6 @@ const MyBlog = () => {
                 console.log(error);
             }
         }
-
         fetchPosts();
     }, [token]);
 
@@ -53,7 +54,7 @@ const MyBlog = () => {
         <div className="blog_container">
             <div className="allblog">
                 {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
-                {newBlog && <CreateBlog onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/> }
+                {newBlog && <CreateBlog onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/>}
             </div>
             <div className="allblog">
                 <h1>All Blog</h1>
@@ -62,11 +63,8 @@ const MyBlog = () => {
                         <div key={post.id} className="blog-card">
                             <h3>{post.title}</h3>
                             <p>{post.content}</p>
-                            <ul>
-                                <li>{post.author}</li>
-                                <li>{post.date}</li>
-                                <li>{post.date}</li>
-                            </ul>
+                            <h5>Published: {post.publishDate}</h5>
+                            <p>Author: {post.author}</p>
                         </div>
                     ))}
                 </div>

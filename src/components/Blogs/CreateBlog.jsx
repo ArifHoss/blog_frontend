@@ -56,6 +56,8 @@ import {AuthContext} from "../Api/AuthContext.jsx";
 const CreateBlog = ({onCancel, onSaveBlog}) => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const published = useState(new Date().toISOString());
+
 
     const { token, user, userId } = useContext(AuthContext);
 
@@ -74,15 +76,14 @@ const CreateBlog = ({onCancel, onSaveBlog}) => {
             const post = {
                 title,
                 content,
-                author: userId
+                author: userId,
+                published: published,
             };
             const response = await createPost(token, post);
 
             setTitle(response.data.title);
             setContent(response.data.content);
             onSaveBlog(response.data);
-            // console.log(response.author);
-            // console.log(userId);
             console.log(response.data);
             console.log('Post created successfully!')
         } catch (error) {
@@ -90,6 +91,7 @@ const CreateBlog = ({onCancel, onSaveBlog}) => {
             console.log('Error creating post. Please try again.')
         }
     };
+
 
     return (
         <div className="create-post">
