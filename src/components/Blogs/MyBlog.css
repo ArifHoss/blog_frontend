@@ -36,6 +36,12 @@
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
+/*show down left*/
+.blog-card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+}
 
 .blog-card:hover {
     transform: translateY(-10px);

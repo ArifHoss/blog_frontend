@@ -63,8 +63,10 @@ const MyBlog = () => {
                         <div key={post.id} className="blog-card">
                             <h3>{post.title}</h3>
                             <p>{post.content}</p>
-                            <h5>Published: {post.publishDate}</h5>
-                            <p>Author: {post.author}</p>
+                            <div className="blog-card-footer">
+                                <h5>Author: {post.authorName}</h5>
+                                <h5>Published: {post.publishDate}</h5>
+                            </div>
                         </div>
                     ))}
                 </div>
