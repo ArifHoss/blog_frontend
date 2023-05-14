@@ -43,10 +43,10 @@ function App() {
         <div className="app">
             <Navbar loggedIn={loggedIn} onLogout={handleLogout}/>
             <Routes>
-                <Route path="/" element={<Home />} />
+                {/*<Route path="/" element={<Home />} />*/}
                 <Route path="/create" element={token ? <CreateBlog /> : <PleaseLogIn />} />
                 <Route path="/myblog" element={token ? <MyBlog /> : <PleaseLogIn />} />
-                <Route path="/contact" element={<Contact />} />
+                {/*<Route path="/contact" element={<Contact />} />*/}
                 <Route path="/login" element={!loggedIn ? <Login /> : <Navigate to="/" />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/profile" element={token ? <Profile /> : <PleaseLogIn />} />
