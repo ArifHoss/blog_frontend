@@ -19,7 +19,8 @@ const Profile = () => {
                 {/* eslint-disable-next-line react/prop-types */}
                 <p>Email:  {parsedUser.email}</p>
                 <p>Roles: {parsedUser.roles.join(', ')}</p>
-                <p>Post IDs: {parsedUser.blogposts.join(', ')}<button>Show my post</button></p>
+                <p>Post IDs: {parsedUser.blogposts.join(', ')}</p>
+                <button>Show my post</button>
 
             </div>
 

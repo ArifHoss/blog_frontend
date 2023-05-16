@@ -47,6 +47,10 @@
   font-size: 1.5rem;
   word-wrap: break-word;
 }
+button {
+  justify-content: center;
+  padding-left: 100px;
+}
 
 @media (max-width: 768px) {
   .user_details,

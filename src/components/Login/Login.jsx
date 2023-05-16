@@ -22,7 +22,7 @@ const Login = () => {
             if (response.status === 200) {
                 console.log('Login successful');
                 setLoggedIn(true);
-                navigate('/MyBlog');
+                navigate('/blogs');
             }
         } catch (error) {
             console.log(error);

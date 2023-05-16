@@ -30,7 +30,7 @@ const Navbar = () => {
                     {loggedIn && (
                         <>
                             {/*<li><Link to="/create">Create Blog</Link></li>*/}
-                            <li><Link to="/myblog">My Blog</Link></li>
+                            <li><Link to="/blogs">Blogs</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
                             <li><a href="/login" onClick={onLogout}>Logout</a></li>
                         </>

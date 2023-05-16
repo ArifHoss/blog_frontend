@@ -1,12 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect, useContext} from 'react';
-import './MyBlog.css';
+import './Blogs.css';
 import {postApi} from '../Api/postApi.jsx';
 import CreateBlog from "./CreateBlog.jsx";
 import {AuthContext} from "../Api/AuthContext.jsx";
+import BlogCard from "./BlogCard.jsx";
 
 // eslint-disable-next-line react/prop-types
-const MyBlog = () => {
+const Blogs = () => {
 
     const {token} = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
@@ -33,9 +34,14 @@ const MyBlog = () => {
         setNewBlog(true);
     }
 
+    function handleBlogClick(postId) {
+        history.push(`/blog/${postId}`)
+    }
+
     const handleStopBlogSubmit = () => {
         setNewBlog(false);
     }
+
 
     const saveBlog = (enteredBlogData) => {
         const blogData = {
@@ -49,7 +55,6 @@ const MyBlog = () => {
         setNewBlog(false);
     }
 
-
     return (
         <div className="blog_container">
             <div className="allblog">
@@ -60,14 +65,10 @@ const MyBlog = () => {
                 <h1>All Blog</h1>
                 <div className="myblog-container">
                     {posts.map((post) => (
-                        <div key={post.id} className="blog-card">
-                            <h3>{post.title}</h3>
-                            <p>{post.content}</p>
-                            <div className="blog-card-footer">
-                                <h5>Author: {post.authorName}</h5>
-                                <h5>Published: {post.publishDate}</h5>
-                            </div>
-                        </div>
+                        <BlogCard
+                        key={post.id}
+                        post={post}
+                        onClick={() => handleBlogClick(post.id)}/>
                     ))}
                 </div>
             </div>
@@ -75,4 +76,4 @@ const MyBlog = () => {
     );
 };
 
-export default MyBlog;
+export default Blogs;
