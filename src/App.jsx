@@ -9,11 +9,11 @@ import CreateBlog from "./components/Blogs/CreateBlog.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import PleaseLogIn from "./components/Login/PleaseLogIn.jsx";
 import {AuthContext} from "./components/Api/AuthContext.jsx";
-import BlogCard from "./components/Blogs/BlogCard.jsx";
+import Blog from "./components/blog/Blog.jsx";
 
 function App() {
-    const {navigate, token, user, loggedIn, setLoggedIn, userId, setUserId } = useContext(AuthContext);
-    // const navigate = useNavigate();
+    const {token, user, loggedIn, setLoggedIn, userId, setUserId } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         setLoggedIn(false);
@@ -46,7 +46,7 @@ function App() {
                 <Route path="/login" element={!loggedIn ? <Login/> : <Navigate to="/blogs"/>}/>
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={token ? <Profile/> : <PleaseLogIn/>}/>
-                <Route path="/blog" element={<BlogCard/>}/>
+                <Route path="/blog/:id" element={<Blog/>}/>
             </Routes>
 
         </div>

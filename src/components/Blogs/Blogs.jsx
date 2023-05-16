@@ -5,13 +5,16 @@ import {postApi} from '../Api/postApi.jsx';
 import CreateBlog from "./CreateBlog.jsx";
 import {AuthContext} from "../Api/AuthContext.jsx";
 import BlogCard from "./BlogCard.jsx";
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Blogs = () => {
 
-    const {navigate,token} = useContext(AuthContext);
+    const {token} = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [newBlog, setNewBlog] = useState(false);
+    const navigate = useNavigate();
+
 
 
 
@@ -34,10 +37,10 @@ const Blogs = () => {
         setNewBlog(true);
     }
 
-    const handleBlogClick= (postId) => {
+    const handleBlogClick = (postId) => {
         navigate(`/blog/${postId}`);
-
     }
+
 
     const handleStopBlogSubmit = () => {
         setNewBlog(false);
