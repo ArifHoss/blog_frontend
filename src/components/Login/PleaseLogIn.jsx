@@ -1,10 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, {useContext} from 'react';
 import './Login.css'
+import {AuthContext} from "../Api/AuthContext.jsx";
 
 const PleaseLogIn = () => {
-    const navigate = useNavigate();
+    const [navigate] = useContext(AuthContext);
+    // const navigate = useNavigate();
 
     return (
         <div className="container">

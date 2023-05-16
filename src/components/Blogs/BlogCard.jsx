@@ -1,10 +1,9 @@
+// BlogCard.jsx
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React from 'react';
 
 // eslint-disable-next-line react/prop-types
 const BlogCard = ({post, onClick}) => (
-
-    // eslint-disable-next-line react/prop-types
     <div key={post.id} className="blog-card" onClick={onClick}>
         <h3>{post.title}</h3>
         <p>{post.content}</p>

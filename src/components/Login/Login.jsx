@@ -3,14 +3,12 @@ import React, {useState, useContext} from 'react';
 import './Login.css';
 import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
-import {useNavigate} from "react-router-dom";
 import {AuthContext} from "../Api/AuthContext.jsx";
 
 const Login = () => {
-    const { token, setToken, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
+    const {navigate, token, setToken, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
     async function handleLogin() {
         try {

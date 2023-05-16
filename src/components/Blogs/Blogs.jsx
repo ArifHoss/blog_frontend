@@ -9,7 +9,7 @@ import BlogCard from "./BlogCard.jsx";
 // eslint-disable-next-line react/prop-types
 const Blogs = () => {
 
-    const {token} = useContext(AuthContext);
+    const {navigate,token} = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [newBlog, setNewBlog] = useState(false);
 
@@ -34,8 +34,9 @@ const Blogs = () => {
         setNewBlog(true);
     }
 
-    function handleBlogClick(postId) {
-        history.push(`/blog/${postId}`)
+    const handleBlogClick= (postId) => {
+        navigate(`/blog/${postId}`);
+
     }
 
     const handleStopBlogSubmit = () => {
