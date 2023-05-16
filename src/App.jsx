@@ -2,14 +2,11 @@
 import React, {useEffect, useContext} from "react";
 import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.jsx";
-import Home from "./components/pages/Home.jsx";
 import Blogs from "./components/Blogs/Blogs.jsx";
-import Contact from "./components/pages/Contact.jsx";
 import Signup from "./components/signup/Signup.jsx";
 import Login from "./components/Login/Login.jsx";
 import CreateBlog from "./components/Blogs/CreateBlog.jsx";
 import Profile from "./components/Profile/Profile.jsx";
-
 import PleaseLogIn from "./components/Login/PleaseLogIn.jsx";
 import {AuthContext} from "./components/Api/AuthContext.jsx";
 
@@ -43,10 +40,8 @@ function App() {
         <div className="app">
             <Navbar loggedIn={loggedIn} onLogout={handleLogout}/>
             <Routes>
-                {/*<Route path="/" element={<Home />} />*/}
                 <Route path="/create" element={token ? <CreateBlog /> : <PleaseLogIn />} />
                 <Route path="/blogs" element={token ? <Blogs /> : <PleaseLogIn />} />
-                {/*<Route path="/contact" element={<Contact />} />*/}
                 <Route path="/login" element={!loggedIn ? <Login /> : <Navigate to="/blogs" />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/profile" element={token ? <Profile /> : <PleaseLogIn />} />
