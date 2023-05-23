@@ -4,11 +4,13 @@ import './Login.css';
 import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
 import {AuthContext} from "../Api/AuthContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
-    const {navigate, token, setToken, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
+    const {token, setToken, setUser, loggedIn, setLoggedIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     async function handleLogin() {
         try {
@@ -49,7 +51,7 @@ const Login = () => {
                         <button onClick={handleLogin}>Login</button>
                         {/* eslint-disable-next-line react/no-unescaped-entities */}
                         <p>Don't have an account?</p>
-                        <button onClick={() => navigate("/signup")}>Signup</button>
+                        <button onClick={() => navigate('/signup')}>Signup</button>
                     </div>
                 </>
             ) : (

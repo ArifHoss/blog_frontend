@@ -21,14 +21,14 @@ const Navbar = () => {
                 <ul>
                     {!loggedIn && (
                         <>
-                            <li><Link to="/login">Login</Link></li>
+                            <li><Link to="/">Login</Link></li>
                         </>
                     )}
                     {loggedIn && (
                         <>
                             <li><Link to="/blogs">Blogs</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
-                            <li><a href="/login" onClick={onLogout}>Logout</a></li>
+                            <li><a href="/" onClick={onLogout}>Logout</a></li>
                         </>
                     )}
                 </ul>

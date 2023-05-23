@@ -43,7 +43,7 @@ function App() {
             <Routes>
                 <Route path="/create" element={token ? <CreateBlog/> : <PleaseLogIn/>}/>
                 <Route path="/blogs" element={token ? <Blogs/> : <PleaseLogIn/>}/>
-                <Route path="/login" element={!loggedIn ? <Login/> : <Navigate to="/blogs"/>}/>
+                <Route path="/" element={!loggedIn ? <Login/> : <Navigate to="/blogs"/>}/>
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={token ? <Profile/> : <PleaseLogIn/>}/>
                 <Route path="/blog/:id" element={<Blog/>}/>
