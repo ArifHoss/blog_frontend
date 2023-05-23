@@ -1,4 +1,5 @@
-import {useState} from "react";
+// eslint-disable-next-line no-unused-vars
+import React, {useState} from "react";
 import {createUser} from "../Api/userApi.jsx";
 import styles from './Signup.module.css';
 import {useNavigate} from "react-router-dom";
@@ -20,7 +21,7 @@ const Signup = () => {
             setMessage('User created successfully');
             if (response.status === 201) {
                 console.log('User created successfully');
-                navigate('/login');
+                navigate('/');
             }
         } catch (e) {
             setMessage('Error creating user.');
@@ -91,6 +92,8 @@ const Signup = () => {
 
                 {/* eslint-disable-next-line no-undef */}
                 <button type="submit" className={styles.submit_btn}>Signup</button>
+                <p>Already have an account?</p>
+                <button onClick={() => navigate('/')}>Login</button>
             </form>
             {/* eslint-disable-next-line no-undef */}
             {message && <p className={styles.message}>{message}</p>}
