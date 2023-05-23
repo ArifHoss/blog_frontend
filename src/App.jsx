@@ -9,7 +9,7 @@ import CreateBlog from "./components/Blogs/CreateBlog.jsx";
 import Profile from "./components/Profile/Profile.jsx";
 import PleaseLogIn from "./components/Login/PleaseLogIn.jsx";
 import {AuthContext} from "./components/Api/AuthContext.jsx";
-import Blog from "./components/blog/Blog.jsx";
+import Blog from "./components/Blogs/Blog.jsx";
 
 function App() {
     const {token, user, loggedIn, setLoggedIn, userId, setUserId } = useContext(AuthContext);
