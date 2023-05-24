@@ -1,7 +1,7 @@
 // // eslint-disable-next-line no-unused-vars
 // import React, {useEffect, useState} from 'react';
 // import {createPost} from "../Api/postApi.jsx";
-// import './CreateBlog.css';
+// import './CreateBlog.module.css';
 //
 //
 // // eslint-disable-next-line react/prop-types
@@ -49,7 +49,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useEffect, useState, useContext} from 'react';
 import {createPost} from "../Api/postApi.jsx";
-import './CreateBlog.css';
+import styles from './CreateBlog.module.css';
 import {AuthContext} from "../Api/AuthContext.jsx";
 
 // eslint-disable-next-line react/prop-types
@@ -94,10 +94,11 @@ const CreateBlog = ({onCancel, onSaveBlog}) => {
 
 
     return (
-        <div className="create-post">
+        // eslint-disable-next-line no-undef
+        <div className={styles.container}>
             <h1>Create a New Post</h1>
             <form onSubmit={submitHandler}>
-                <div className="form-group">
+                <div className={styles.form_group}>
                     <label htmlFor="title">Title</label>
                     <input
                         type="text"
@@ -107,7 +108,7 @@ const CreateBlog = ({onCancel, onSaveBlog}) => {
                         required
                     />
                 </div>
-                <div className="form-group">
+                <div className={styles.form_group}>
                     <label htmlFor="content">Content</label>
                     <textarea
                         id="content"
@@ -116,7 +117,7 @@ const CreateBlog = ({onCancel, onSaveBlog}) => {
                         required
                     ></textarea>
                 </div>
-                <div className="button_container">
+                <div className={styles.button_container}>
                     <div>
                         <button type="submit">Create Post</button>
                     </div>

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useContext, useEffect, useState} from 'react';
-import './Profile.css';
+import styles from './Profile.module.css';
 import {AuthContext} from "../Api/AuthContext.jsx";
 
 // eslint-disable-next-line react/prop-types
@@ -11,9 +11,10 @@ const Profile = () => {
     // console.log(user);
 
     return (
-        <div className="user-details">
+        // eslint-disable-next-line no-undef
+        <div className={styles.container}>
             <h2>User Profile page</h2>
-            <div className="user_details">
+            <div className={styles.user_details}>
                 {/* eslint-disable-next-line react/prop-types */}
                 <h4>Name:  {parsedUser.first_name} {parsedUser.last_name}</h4>
                 {/* eslint-disable-next-line react/prop-types */}
@@ -24,7 +25,7 @@ const Profile = () => {
 
             </div>
 
-            <div className="token_container">
+            <div className={styles.token_container}>
                 <h4>Token {token}</h4>
             </div>
         </div>

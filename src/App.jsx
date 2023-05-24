@@ -10,6 +10,7 @@ import Profile from "./components/Profile/Profile.jsx";
 import PleaseLogIn from "./components/Login/PleaseLogIn.jsx";
 import {AuthContext} from "./components/Api/AuthContext.jsx";
 import Blog from "./components/Blogs/Blog.jsx";
+import UpdateBlog from "./components/Blogs/UpdateBlog.jsx";
 
 function App() {
     const {token, user, loggedIn, setLoggedIn, userId, setUserId } = useContext(AuthContext);
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={token ? <Profile/> : <PleaseLogIn/>}/>
                 <Route path="/blog/:id" element={<Blog/>}/>
+                <Route path="/updateblog/:id" element={<UpdateBlog/>}/>
             </Routes>
 
         </div>

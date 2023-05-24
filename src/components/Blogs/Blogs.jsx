@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect, useContext} from 'react';
-import './Blogs.css';
+import styles from './Blogs.module.css';
 import {postApi} from '../Api/postApi.jsx';
 import CreateBlog from "./CreateBlog.jsx";
 import {AuthContext} from "../Api/AuthContext.jsx";
@@ -60,14 +60,14 @@ const Blogs = () => {
     }
 
     return (
-        <div className="blog_container">
-            <div className="allblog">
+        <div className={styles.container}>
+            <div className={styles.blog_container}>
                 {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
                 {newBlog && <CreateBlog onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/>}
             </div>
-            <div className="allblog">
+            <div className={styles.blog_container}>
                 <h1>All Blog</h1>
-                <div className="myblog-container">
+                <div className={styles.blog_card}>
                     {posts.map((post) => (
                         <BlogCard
                         key={post.id}

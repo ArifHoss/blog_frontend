@@ -1,5 +1,5 @@
-/* Profile.css */
-.user-details {
+/* Profile.module.css */
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   font-family: Arial, sans-serif;
 }
 
-.user-details h2 {
+.container h2 {
   color: #4a47a3;
   font-size: 2.5rem;
   margin-bottom: 1rem;

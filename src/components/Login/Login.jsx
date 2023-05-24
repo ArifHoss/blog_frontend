@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useContext} from 'react';
-import './Login.css';
+import styles from './Login.module.css';
 import Profile from '../Profile/Profile.jsx';
 import {loginUser} from "../Api/userApi.jsx";
 import {AuthContext} from "../Api/AuthContext.jsx";
@@ -31,7 +31,7 @@ const Login = () => {
 
     return (
         // eslint-disable-next-line no-undef
-        <div className="container">
+        <div className={styles.container}>
             {!loggedIn ? (
                 <>
                     <h1>Login</h1>

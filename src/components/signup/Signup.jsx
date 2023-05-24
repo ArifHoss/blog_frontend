@@ -24,7 +24,7 @@ const Signup = () => {
                 navigate('/');
             }
         } catch (e) {
-            setMessage('Error creating user.');
+            setMessage('Error creating user.'+e);
         }
     };
 

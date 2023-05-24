@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useContext} from 'react';
-import './Login.css'
+import './Login.module.css'
 import {useNavigate} from "react-router-dom";
 
 const PleaseLogIn = () => {
