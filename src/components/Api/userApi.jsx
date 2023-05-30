@@ -73,3 +73,19 @@ export const createUser = async (firstName, lastName, email, password) => {
     }
 };
 
+
+export const getMyPost = async (token, id) => {
+    try {
+        const res = await axios.get(`http://localhost:8080/api/v1/users/mypost/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        console.log(res.data);
+        return res;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
