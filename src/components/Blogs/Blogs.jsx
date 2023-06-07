@@ -94,8 +94,7 @@ const Blogs = () => {
                     {posts.map((post) => (
                         <BlogCard
                             key={post.id}
-                            post={post}
-                            onClick={() => handleBlogClick(post.id)}/>
+                            post={post}/>
                     ))}
                 </div>
             </div>
