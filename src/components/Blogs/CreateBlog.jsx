@@ -19,7 +19,7 @@ const CreateBlog = () => {
             author: userId,
             published: new Date().toISOString()
         };
-        onSaveBlog(newBlog);
+        await onSaveBlog(newBlog);
     };
 
     const onSaveBlog = async (blogData) => {
