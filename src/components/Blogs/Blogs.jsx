@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect, useContext} from 'react';
 import styles from './Blogs.module.css';
+// import {createPost, postApi} from '../Api/postApi.jsx';
 import {postApi} from '../Api/postApi.jsx';
-import CreateBlog from "./CreateBlog.jsx";
+// import CreateBlog from "./CreateBlog.jsx";
 import {AuthContext} from "../Api/AuthContext.jsx";
 import BlogCard from "./BlogCard.jsx";
 import {useNavigate} from "react-router-dom";
@@ -14,9 +15,19 @@ const Blogs = () => {
     const {token, userId} = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [myPosts, setMyPosts] = useState([]);
-    const [newBlog, setNewBlog] = useState(false);
+    // const [newBlog, setNewBlog] = useState(false);
     const navigate = useNavigate();
 
+
+    const fetchMyPosts = async () => {
+        try {
+            const response = await getMyPost(token, userId);
+            console.log(response.data);
+            setMyPosts(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     useEffect(() => {
         async function fetchPosts() {
@@ -33,60 +44,60 @@ const Blogs = () => {
     }, [token]);
 
     useEffect(() => {
-        async function fetchMyPosts() {
-            try {
-                const response = await getMyPost(token, userId);
-                console.log(response.data);
-                setMyPosts(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
         fetchMyPosts();
-    }, [token]);
+    }, [token, userId]);
+
+    // const handleBlogSubmit = () => {
+    //     setNewBlog(true);
+    // }
 
 
-    const handleBlogSubmit = () => {
-        setNewBlog(true);
-    }
-
-    const handleBlogClick = (postId) => {
+    const handleShowMyBlog = (postId) => {
         navigate(`/blog/${postId}`);
     }
 
-    const handleStopBlogSubmit = () => {
-        setNewBlog(false);
-    }
+    // const handleStopBlogSubmit = () => {
+    //     setNewBlog(false);
+    // }
+    //
+    // const saveBlog = async (enteredBlogData) => {
+    //     try {
+    //         const response = await createPost(token, enteredBlogData);
+    //         const newBlogData = response.data; // assuming this is the format
+    //
+    //         setPosts(prevPosts => [newBlogData, ...prevPosts]);
+    //
+    //         if (newBlogData.userId === userId) { // Check if the new blog belongs to the current user
+    //             setMyPosts(prevMyPosts => [newBlogData, ...prevMyPosts]);
+    //         }
+    //         await fetchMyPosts();
+    //         setNewBlog(false);
+    //         alert("Blog created successfully!"); // Consider using a more elegant notification method
+    //     } catch (error) {
+    //         console.error("Failed to save blog:", error);
+    //         alert("Failed to create blog. Please try again."); // Consider using a more elegant notification method
+    //     }
+    // }
+    //
 
 
-    const saveBlog = (enteredBlogData) => {
-        const blogData = {
-            ...enteredBlogData,
-            id: Math.random().toString()
-        };
-        console.log(blogData);
-        setPosts((prevPosts) => {
-            return [blogData, ...prevPosts];
-        });
-        setNewBlog(false);
-    }
 
     return (
         <div className={styles.container}>
-            <div className={styles.blog_container}>
-                {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}
-                {newBlog && <CreateBlog onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/>}
-            </div>
+            {/*<div className={styles.blog_container}>*/}
+            {/*    {!newBlog && <button onClick={handleBlogSubmit}>Create Blog</button>}*/}
+            {/*    {newBlog && <CreateBlog onCancel={handleStopBlogSubmit} onSaveBlog={saveBlog}/>}*/}
+            {/*</div>*/}
             <div className={styles.blog_container}>
 
                 {/*if author == token user*/}
                 <h1>My Blogs</h1>
                 <div className={styles.blog_card}>
-                    {myPosts.map((post) => (
+                    {myPosts.map((post) => ( // was myPosts
                         <BlogCard
                             key={post.id}
                             post={post}
-                            onClick={() => handleBlogClick(post.id)}/>
+                            onClick={() => handleShowMyBlog(post.id)}/>
                     ))}
                 </div>
                 <h1>All Blog</h1>
@@ -94,7 +105,10 @@ const Blogs = () => {
                     {posts.map((post) => (
                         <BlogCard
                             key={post.id}
-                            post={post}/>
+                            post={post}
+                            onClick={() => handleShowMyBlog(post.id)}
+                        />
+
                     ))}
                 </div>
             </div>

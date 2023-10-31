@@ -1,96 +1,45 @@
-// // eslint-disable-next-line no-unused-vars
-// import React, {useEffect, useState} from 'react';
-// import {createPost} from "../Api/postApi.jsx";
-// import './CreateBlog.module.css';
-//
-//
-// // eslint-disable-next-line react/prop-types
-// const CreateBlog = ({token, onCancel, onSaveBlog}) => {
-//     const [title, setTitle] = useState('');
-//     const [content, setContent] = useState('');
-//     const [userId, setUserId] = useState(0);
-//
-//     useEffect(() => {
-//         // console.log(user);
-//         const user = JSON.parse(localStorage.getItem('user'));
-//         setUserId(user.id);
-//         console.log(user.id);
-//     }, [])
-//
-//     useEffect(() => {
-//         console.log(userId);
-//     }, [userId]);
-//
-//     const submitHandler = async (e) => {
-//         e.preventDefault();
-//
-//         try {
-//             const post = {
-//                 title,
-//                 content,
-//                 author: userId
-//             };
-//             const response = await createPost(token, post);
-//
-//             setTitle(response.data.title);
-//             setContent(response.data.content);
-//             onSaveBlog(response.data);
-//             // console.log(response.author);
-//             // console.log(userId);
-//             console.log(response.data);
-//             console.log('Post created successfully!')
-//         } catch (error) {
-//             console.log(error);
-//             console.log('Error creating post. Please try again.')
-//         }
-//     };
-
-
 // eslint-disable-next-line no-unused-vars
-import React, {useEffect, useState, useContext} from 'react';
-import {createPost} from "../Api/postApi.jsx";
+import React, { useState, useContext } from 'react';
+import { createPost } from "../Api/postApi.jsx";
 import styles from './CreateBlog.module.css';
-import {AuthContext} from "../Api/AuthContext.jsx";
+import { AuthContext } from "../Api/AuthContext.jsx";
+import { useNavigate } from 'react-router-dom';
 
-// eslint-disable-next-line react/prop-types
-const CreateBlog = ({onCancel, onSaveBlog}) => {
+const CreateBlog = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const published = useState(new Date().toISOString());
-
-
-    const { token, user, userId } = useContext(AuthContext);
-
-    useEffect(() => {
-        console.log(userId);
-    }, [user]) // user is a dependency now, to re-run the effect when user changes
-
-    useEffect(() => {
-        console.log(userId);
-    }, [userId]);
+    const { token, userId } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        const newBlog = {
+            title,
+            content,
+            author: userId,
+            published: new Date().toISOString()
+        };
+        onSaveBlog(newBlog);
+    };
 
+    const onSaveBlog = async (blogData) => {
         try {
-            const post = {
-                title,
-                content,
-                author: userId,
-                published: published,
-            };
-            const response = await createPost(token, post);
-
-            setTitle(response.data.title);
-            setContent(response.data.content);
-            onSaveBlog(response.data);
-            console.log(response.data);
-            console.log('Post created successfully!')
+            await createPost(token, blogData);
+            // Redirect or clear the form here upon successful creation
+            navigate('/blogs'); // Example redirection after blog creation
         } catch (error) {
-            console.log(error);
-            console.log('Error creating post. Please try again.')
+            console.error("Failed to save blog:", error);
+            alert("Failed to create blog. Please try again."); // Consider a more user-friendly notification
         }
     };
+
+    const onCancel = () => {
+        // Clear the form or navigate away
+        setTitle('');
+        setContent('');
+        navigate('/blogs'); // Navigate away on cancel
+    };
+
 
 
     return (

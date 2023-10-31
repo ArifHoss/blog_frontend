@@ -30,6 +30,13 @@
     flex-grow: 1;
 
 }
+.searchInput {
+    flex: 1;
+    padding: 10px 20px;
+    border: 1px solid #e5e5e5;
+    margin: 0 20px;
+    border-radius: 25px;
+}
 
 .rightLinks {
     display: flex;

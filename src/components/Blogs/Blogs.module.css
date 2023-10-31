@@ -1,5 +1,6 @@
 .container {
-    padding-top: 10%;
+    padding-top: 50px;
+    background-color: #dadcd3;
 }
 
 .blog_container{
@@ -7,9 +8,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #9b59b6;
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
     z-index: 1;
 }
 
@@ -19,8 +19,9 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background-color:#9b59b6;
+    background-color: #6b6a6c;
     margin-top: 20px;
+    border-radius: 5px;
     z-index: 1;
 }
 

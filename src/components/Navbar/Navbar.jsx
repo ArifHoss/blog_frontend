@@ -14,7 +14,9 @@ const Navbar = () => {
             </div>
 
             <div className={classes.title}>
-                <h1>The Dojo Blog</h1>
+                {/*<Header/>*/}
+                <h2>:( SUMON BLOG :)</h2>
+                <input type="text" placeholder="Sök efter author, kategori eller artikel" className={classes.searchInput} />
             </div>
 
             <div className={classes.rightLinks}>
@@ -26,6 +28,7 @@ const Navbar = () => {
                     )}
                     {loggedIn && (
                         <>
+                            <li><Link to="/create">+Create</Link></li>
                             <li><Link to="/blogs">Blogs</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
                             <li><a href="/" onClick={onLogout}>Logout</a></li>
