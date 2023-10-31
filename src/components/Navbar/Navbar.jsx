@@ -15,7 +15,7 @@ const Navbar = () => {
 
             <div className={classes.title}>
                 {/*<Header/>*/}
-                <h2>:( SUMON BLOG :)</h2>
+                <h2>:( WABI SABI :)</h2>
                 <input type="text" placeholder="Sök efter author, kategori eller artikel" className={classes.searchInput} />
             </div>
 
