@@ -1,23 +1,13 @@
 import classes from "./Navbar.module.css";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {AuthContext} from "../Api/AuthContext.jsx";
 import {useContext} from "react";
+import Logout from "../LoginLogout/Logout.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = () => {
 
-    const { loggedIn, setLoggedIn, setToken, setUser, setUserId } = useContext(AuthContext);
-    let navigate = useNavigate();
-
-    const handleLogout = () => {
-        setLoggedIn(false);
-        setToken('');
-        setUser('');
-        setUserId(0);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        navigate("/");
-    };
+    const { loggedIn} = useContext(AuthContext);
 
     return (
         <nav className={classes.navbar}>
@@ -42,7 +32,7 @@ const Navbar = () => {
                             <li><Link to="/create">+Create</Link></li>
                             <li><Link to="/">Blogs</Link></li>
                             <li><Link to="/profile">Profile</Link></li>
-                            <li><a href="/" onClick={handleLogout}>Logout</a></li>
+                            <li><Logout/></li>
                         </>
                     )}
                 </ul>
