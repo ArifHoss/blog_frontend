@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {createUser} from "../Api/userApi.jsx";
 import styles from './Signup.module.css';
 import {useNavigate} from "react-router-dom";
@@ -27,7 +27,7 @@ const Signup = () => {
             setMessage('User created successfully');
             if (newUser.status === 201) {
                 console.log('User created successfully');
-                navigate('/');
+                navigate('/blogs');
             }
         } catch (e) {
             setMessage('Error creating user: ' + e.message);

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useEffect, useContext} from "react";
-import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Blogs from "./components/Blogs/Blogs.jsx";
 import Signup from "./components/signup/Signup.jsx";
@@ -13,15 +13,8 @@ import Blog from "./components/Blogs/Blog.jsx";
 import UpdateBlog from "./components/Blogs/UpdateBlog.jsx";
 
 function App() {
-    const {token, user, loggedIn, setLoggedIn, userId, setUserId } = useContext(AuthContext);
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        setLoggedIn(false);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        navigate("/login");
-    };
+    const {token, user, loggedIn, userId, setUserId } = useContext(AuthContext);
+    // let navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
@@ -40,12 +33,11 @@ function App() {
 
     return (
         <div className="app">
-            <Navbar loggedIn={loggedIn} onLogout={handleLogout}/>
+            <Navbar/>
             <Routes>
                 <Route path="/create" element={token ? <CreateBlog/> : <PleaseLogIn/>}/>
-                {/*<Route path="/blogs" element={token ? <Blogs/> : <PleaseLogIn/>}/>*/}
-                <Route path="/blogs" element={<Blogs/>}/>
-                <Route path="/" element={!loggedIn ? <Login/> : <Navigate to="/blogs"/>}/>
+                <Route path="/" element={<Blogs/>}/>
+                <Route path="/login" element={!loggedIn ? <Login/> : <Navigate to="/profile"/>}/>
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={token ? <Profile/> : <PleaseLogIn/>}/>
                 <Route path="/blog/:id" element={<Blog/>}/>

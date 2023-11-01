@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
     const [userId, setUserId] = useState(0);
-
     return (
         <div className={styles.auth_context}>
         <AuthContext.Provider value={{token, setToken, user, setUser, loggedIn, setLoggedIn, userId, setUserId }}>

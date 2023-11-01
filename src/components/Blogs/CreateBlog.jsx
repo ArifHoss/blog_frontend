@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import { createPost } from "../Api/getPosts.jsx";
 import styles from './CreateBlog.module.css';
 import { AuthContext } from "../Api/AuthContext.jsx";
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from "react-router-dom";
 
 const CreateBlog = () => {
     const [title, setTitle] = useState('');
