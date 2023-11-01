@@ -2,13 +2,19 @@
 import React, {useContext, useEffect, useState} from 'react';
 import styles from './Profile.module.css';
 import {AuthContext} from "../Api/AuthContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Profile = () => {
     const {token, user} = useContext(AuthContext);
     const parsedUser = JSON.parse(user);
+    const navigate = useNavigate();
     // save all user
     // console.log(user);
+
+    function handleButtonClick() {
+        navigate("/myblogs")
+    }
 
     return (
         // eslint-disable-next-line no-undef
@@ -21,7 +27,7 @@ const Profile = () => {
                 <p>Email:  {parsedUser.email}</p>
                 <p>Roles: {parsedUser.roles.join(', ')}</p>
                 <p>Post IDs: {parsedUser.blogposts.join(', ')}</p>
-                <button>Show my post</button>
+                <button onClick={handleButtonClick}>Show all my blogs</button>
 
             </div>
 
