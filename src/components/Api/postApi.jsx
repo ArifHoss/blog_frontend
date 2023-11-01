@@ -32,7 +32,7 @@ export const getPostById = async (token, id) => {
 
 export const updatePostById = async (token, post,id) => {
     try {
-        const response = await axios.post(`http://localhost:8080/api/v1/posts/update/${id}`, post, {
+        const response = await axios.patch(`http://localhost:8080/api/v1/posts/update/${id}`, post, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
