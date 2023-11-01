@@ -26,7 +26,7 @@ const CreateBlog = () => {
         try {
             await createPost(token, blogData);
             // Redirect or clear the form here upon successful creation
-            navigate('/blogs'); // Example redirection after blog creation
+            navigate('/'); // Example redirection after blog creation
         } catch (error) {
             console.error("Failed to save blog:", error);
             alert("Failed to create blog. Please try again."); // Consider a more user-friendly notification
