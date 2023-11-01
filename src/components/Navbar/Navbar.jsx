@@ -23,6 +23,7 @@ const Navbar = () => {
                 <ul>
                     {!loggedIn && (
                         <>
+                            <li><Link to="/blogs">Blogs</Link></li>
                             <li><Link to="/">Login</Link></li>
                         </>
                     )}

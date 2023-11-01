@@ -43,7 +43,8 @@ function App() {
             <Navbar loggedIn={loggedIn} onLogout={handleLogout}/>
             <Routes>
                 <Route path="/create" element={token ? <CreateBlog/> : <PleaseLogIn/>}/>
-                <Route path="/blogs" element={token ? <Blogs/> : <PleaseLogIn/>}/>
+                {/*<Route path="/blogs" element={token ? <Blogs/> : <PleaseLogIn/>}/>*/}
+                <Route path="/blogs" element={<Blogs/>}/>
                 <Route path="/" element={!loggedIn ? <Login/> : <Navigate to="/blogs"/>}/>
                 <Route path="/signup" element={<Signup/>}/>
                 <Route path="/profile" element={token ? <Profile/> : <PleaseLogIn/>}/>

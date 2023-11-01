@@ -10,7 +10,7 @@ import {getMyPost} from "../Api/userApi.jsx";
 // eslint-disable-next-line react/prop-types
 const Blogs = () => {
 
-    const {token, userId} = useContext(AuthContext);
+    const {token, userId, loggedIn} = useContext(AuthContext);
     const [posts, setPosts] = useState([]);
     const [myPosts, setMyPosts] = useState([]);
     const navigate = useNavigate();
@@ -58,16 +58,31 @@ const Blogs = () => {
         <div className={styles.container}>
             <div className={styles.blog_container}>
 
-                <h1>My Blogs</h1>
-                <p>Wabi Sabi: Embrace imperfection instead of stressing over every little detail. Taking action is better than waiting for perfection because it is often unattainable!</p>
-                <div className={styles.blog_card}>
-                    {myPosts.map((post) => (
-                        <BlogCard
-                            key={post.id}
-                            post={post}
-                            onClick={() => handleShowMyBlog(post.id)}/>
-                    ))}
-                </div>
+                {/*<h1>My Blogs</h1>*/}
+                {/*<p>Wabi Sabi: Embrace imperfection instead of stressing over every little detail. Taking action is better than waiting for perfection because it is often unattainable!</p>*/}
+                {/*<div className={styles.blog_card}>*/}
+                {/*    {myPosts.map((post) => (*/}
+                {/*        <BlogCard*/}
+                {/*            key={post.id}*/}
+                {/*            post={post}*/}
+                {/*            onClick={() => handleShowMyBlog(post.id)}/>*/}
+                {/*    ))}*/}
+                {/*</div>*/}
+                {loggedIn && ( // Only show this section if the user is logged in
+                    <>
+                        <h1>My Blogs</h1>
+                        <p>Wabi Sabi: Embrace imperfection instead of stressing over every little detail.</p>
+                        <div className={styles.blog_card}>
+                            {myPosts.map((post) => (
+                                <BlogCard
+                                    key={post.id}
+                                    post={post}
+                                    onClick={() => handleShowMyBlog(post.id)}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
                 <h1>All Blog</h1>
                 <p>Ikigai: Discover your purpose in life, find something that makes you wants to make up each day because you purpose fuels you!</p>
                 <div className={styles.blog_card}>
