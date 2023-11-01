@@ -30,6 +30,22 @@ export const getPostById = async (token, id) => {
     }
 };
 
+export const updatePostById = async (token, post,id) => {
+    try {
+        const response = await axios.post(`http://localhost:8080/api/v1/posts/update/${id}`, post, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            }
+        });
+        console.log(response.data);
+        return response;
+    }catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 
 export const createPost = async (token, post) => {
     try {
