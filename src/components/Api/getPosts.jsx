@@ -1,12 +1,8 @@
 import axios from "axios";
 
-export const postApi = async (token) => {
+export const getPosts = async () => {
     try {
-        const res = await axios.get('http://localhost:8080/api/v1/posts', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        const res = await axios.get('http://localhost:8080/api/v1/posts');
         console.log(res.data);
         return res;
     } catch (error) {

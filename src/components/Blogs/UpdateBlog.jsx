@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getPostById, updatePostById } from '../Api/postApi.jsx';
+import { getPostById, updatePostById } from '../Api/getPosts.jsx';
 import { AuthContext } from "../Api/AuthContext.jsx";
 
 const UpdateBlog = () => {

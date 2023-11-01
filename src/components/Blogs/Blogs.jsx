@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect, useContext} from 'react';
 import styles from './Blogs.module.css';
-import {postApi} from '../Api/postApi.jsx';
+import {getPosts} from '../Api/getPosts.jsx';
 import {AuthContext} from "../Api/AuthContext.jsx";
 import BlogCard from "./BlogCard.jsx";
 import {useNavigate} from "react-router-dom";
@@ -28,7 +28,7 @@ const Blogs = () => {
 
     const fetchPosts = async ()=> {
         try {
-            const response = await postApi(token);
+            const response = await getPosts();
             console.log(response.data);
             setPosts(response.data);
         } catch (error) {
@@ -38,7 +38,7 @@ const Blogs = () => {
 
     useEffect(() => {
         fetchPosts();
-    }, [token]);
+    }, []);
 
 
     useEffect(() => {
