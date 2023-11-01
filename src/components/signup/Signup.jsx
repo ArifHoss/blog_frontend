@@ -9,26 +9,9 @@ const Signup = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [roles] = useState(new Set(['ROLE_USER']));
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
-// old handleSubmit function
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await createUser(firstName, lastName, email, password);
-    //         setMessage('User created successfully');
-    //         if (response.status === 201) {
-    //             console.log('User created successfully');
-    //             navigate('/');
-    //         }
-    //     } catch (e) {
-    //         setMessage('Error creating user.'+e);
-    //     }
-    // };
-
-    // new handleSubmit function
 
     const handleSubmit = async (e) => {
         e.preventDefault();
