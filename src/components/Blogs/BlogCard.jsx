@@ -1,23 +1,26 @@
-// BlogCard.jsx
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './BlogCard.module.css';
 
-// eslint-disable-next-line react/prop-types
-const BlogCard = ({post, onClick}) => (
-    // eslint-disable-next-line react/prop-types
-    <div key={post.id} className={styles.blog_card} onClick={onClick}>
-        {/* eslint-disable-next-line react/prop-types */}
+const BlogCard = ({ post, onClick }) => (
+    <div className={styles.blog_card} onClick={onClick}>
         <h3>{post.title}</h3>
-        {/* eslint-disable-next-line react/prop-types */}
         <p>{post.content}</p>
         <div className={styles.blog_card_footer}>
-            {/* eslint-disable-next-line react/prop-types */}
             <h5>Author: {post.authorName}</h5>
-            {/* eslint-disable-next-line react/prop-types */}
             <h5>Published: {post.publishDate}</h5>
         </div>
     </div>
 );
+
+// Define prop types
+BlogCard.propTypes = {
+    post: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+        authorName: PropTypes.string,
+        publishDate: PropTypes.string
+    }).isRequired,
+    onClick: PropTypes.func.isRequired
+};
 
 export default BlogCard;
