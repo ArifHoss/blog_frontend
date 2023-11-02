@@ -32,8 +32,8 @@ const Blogs = () => {
     return (
         <div className={styles.container}>
             <div className={styles.blog_container}>
-                <h1>All Blog</h1>
-                <p>Ikigai: Discover your purpose in life; find something that makes you want to wake up each day because your purpose fuels you!</p>
+                <h1>IKIGAI</h1>
+                <h4>Discover your purpose in life; find something that makes you want to wake up each day because your purpose fuels you!</h4>
                 <div className={styles.blog_card}>
                     {posts.map((post) => (
                         <BlogCard

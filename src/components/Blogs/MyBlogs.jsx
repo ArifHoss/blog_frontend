@@ -32,8 +32,8 @@ const MyBlogs = () => {
     return (
         <div className={styles.container}>
             <div className={styles.blog_container}>
-                <h1>My Blogs</h1>
-                <p>Wabi Sabi: Embrace imperfection instead of stressing over every little detail.</p>
+                <h2>WABI SABI</h2>
+                <h4>Embrace imperfection instead of stressing over every little detail.</h4>
                 <div className={styles.blog_card}>
                     {myPosts.map((post) => (
                         <BlogCard
