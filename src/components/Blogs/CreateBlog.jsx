@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { createPost } from "../Api/getPosts.jsx";
 import styles from './CreateBlog.module.css';
 import { AuthContext } from "../Api/AuthContext.jsx";
@@ -71,7 +70,7 @@ const CreateBlog = () => {
                         <button type="submit">Create Post</button>
                     </div>
                     <div>
-                        <button type="submit" onClick={onCancel}>cancel</button>
+                        <button type="button" onClick={onCancel}>cancel</button>
                     </div>
                 </div>
             </form>
