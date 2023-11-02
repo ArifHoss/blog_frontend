@@ -5,24 +5,24 @@ import {getPostById} from '../Api/getPosts.jsx';
 import {AuthContext} from "../Api/AuthContext.jsx";
 import styles from './Blog.module.css';
 const Blog = () => {
-    const {token, userId} = useContext(AuthContext);
+    const {userId} = useContext(AuthContext);
     const [post, setPost] = useState(null);
     const {id} = useParams(); // Get the id from the URL
     const navigate = useNavigate();
 
 
     useEffect(() => {
-        const fetchPost = async () => {
+        const fetchPostById = async () => {
             try {
-                const response = await getPostById(token, id);
+                const response = await getPostById(id);
                 setPost(response.data);
             } catch (error) {
                 console.error('Failed to fetch post:', error);
             }
         };
 
-        fetchPost();
-    }, [token, id]);
+        fetchPostById();
+    }, [id]);
 
 
     if (!post) {

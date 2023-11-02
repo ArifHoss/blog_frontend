@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { getPosts } from '../Api/getPosts.jsx';
 import BlogCard from "./BlogCard.jsx";
 import styles from './Blogs.module.css';
+import {useNavigate} from "react-router-dom";
 
 const Blogs = () => {
 
     const [posts, setPosts] = useState([]);
+    let navigate = useNavigate();
 
 
     const fetchPosts = async ()=> {
@@ -23,17 +25,21 @@ const Blogs = () => {
         fetchPosts();
     }, []);
 
+    const handleShowBlogs = (postId) => {
+        navigate(`/blog/${postId}`);
+    }
 
     return (
         <div className={styles.container}>
             <div className={styles.blog_container}>
                 <h1>All Blog</h1>
-                <p>Ikigai: Discover your purpose in life, find something that makes you wants to make up each day because you purpose fuels you!</p>
+                <p>Ikigai: Discover your purpose in life; find something that makes you want to wake up each day because your purpose fuels you!</p>
                 <div className={styles.blog_card}>
                     {posts.map((post) => (
                         <BlogCard
                             key={post.id}
                             post={post}
+                            onClick={() => handleShowBlogs(post.id)}
                         />
 
                     ))}

@@ -11,13 +11,9 @@ export const getPosts = async () => {
     }
 };
 
-export const getPostById = async (token, id) => {
+export const getPostById = async (id) => {
     try {
-        const res = await axios.get(`http://localhost:8080/api/v1/posts/post/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        const res = await axios.get(`http://localhost:8080/api/v1/posts/post/${id}`);
         console.log(res.data);
         return res;
     } catch (error) {
