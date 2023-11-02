@@ -3,6 +3,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import { getPostById, updatePostById } from '../Api/getPosts.jsx';
 import { AuthContext } from "../Api/AuthContext.jsx";
+import styles from './UpdateBlog.module.css';
+
 
 const UpdateBlog = () => {
     const [title, setTitle] = useState("");
@@ -38,21 +40,23 @@ const UpdateBlog = () => {
     };
 
     return (
-        <div>
-            <h1>Update Blog</h1>
+        <div className={styles.container}>
+            <h1 className={styles.title}>Update Blog</h1>
             <form onSubmit={handleUpdate}>
                 <input
+                    className={styles.inputField}
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="Title"
                 />
                 <textarea
+                    className={styles.textAreaField}
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     placeholder="Content"
                 />
-                <button type="submit">Update Post</button>
+                <button type="submit" className={styles.submitButton}>Update Post</button>
             </form>
         </div>
     );
