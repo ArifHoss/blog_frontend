@@ -35,17 +35,20 @@ const Blog = () => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
-                <h1>{post.title}</h1>
-                <p>{post.content}</p>
+                <h1 className={styles.title}>{post.title}</h1>
+                <p className={styles.content}>{post.content}</p>
             </div>
             <div className={styles.blog_card_footer}>
-                <h5>Author: {post.authorName}</h5>
-                <h5>Published: {post.publishDate}</h5>
+                <h5 className={styles.author}>Author: {post.authorName}</h5>
+                <h5 className={styles.published}>Published: {post.publishDate}</h5>
             </div>
             <div>
-                {isAuthor && <button onClick={() => handleClick(post.id)}>Edit Post</button>}
+                {isAuthor && <button
+                    className={styles.editButton}
+                    onClick={() => handleClick(post.id)}
+                >Edit Post</button>}
             </div>
         </div>
     );
