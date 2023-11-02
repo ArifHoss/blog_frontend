@@ -16,7 +16,7 @@ const UpdateBlog = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await getPostById(token, id);
+                const response = await getPostById(id);
                 setTitle(response.data.title);
                 setContent(response.data.content);
             } catch (error) {
