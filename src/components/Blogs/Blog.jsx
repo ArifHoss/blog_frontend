@@ -5,7 +5,7 @@ import {getPostById} from '../Api/getPosts.jsx';
 import {AuthContext} from "../Api/AuthContext.jsx";
 import styles from './Blog.module.css';
 const Blog = () => {
-    const {token} = useContext(AuthContext);
+    const {token, userId} = useContext(AuthContext);
     const [post, setPost] = useState(null);
     const {id} = useParams(); // Get the id from the URL
     const navigate = useNavigate();
@@ -26,11 +26,12 @@ const Blog = () => {
 
 
     if (!post) {
-        return <div>Loading...</div>; // Show a loading message while the post is being fetched
+        return <div>Loading...</div>;
     }
 
-    const handleClick = (postId) => {
-        navigate(`/updateblog/${postId}`);
+    const isAuthor = userId === post.author;
+    const handleClick = () => {
+        navigate(`/updateblog/${post.id}`);
     }
 
     return (
@@ -44,7 +45,7 @@ const Blog = () => {
                 <h5>Published: {post.publishDate}</h5>
             </div>
             <div>
-                <button onClick={() => handleClick(post.id)}>Edit Post</button>
+                {isAuthor && <button onClick={() => handleClick(post.id)}>Edit Post</button>}
             </div>
         </div>
     );
