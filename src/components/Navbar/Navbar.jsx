@@ -7,7 +7,8 @@ import Logout from "../LoginLogout/Logout.jsx";
 // eslint-disable-next-line react/prop-types
 const Navbar = () => {
 
-    const { loggedIn} = useContext(AuthContext);
+    const { user,loggedIn} = useContext(AuthContext);
+    const parsedUser = JSON.parse(user);
 
     return (
         <nav className={classes.navbar}>
@@ -31,7 +32,7 @@ const Navbar = () => {
                         <>
                             <li><Link to="/create">+Create</Link></li>
                             <li><Link to="/">Blogs</Link></li>
-                            <li><Link to="/profile">Profile</Link></li>
+                            <li><Link to="/profile">{parsedUser.first_name} {parsedUser.last_name}</Link></li>
                             <li><Logout/></li>
                         </>
                     )}
