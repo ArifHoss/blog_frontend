@@ -1,3 +1,4 @@
+/*!*Blogs.module.css*!*/
 .container {
     padding-top: 50px;
     background-color: #dadcd3;
@@ -59,4 +60,33 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        /* Adjust padding or any other property if needed */
+    }
+
+    .button {
+        padding: 8px 16px;  /* Smaller padding for buttons on smaller screens */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        /* Further adjustments for smaller screens */
+        max-width: 90%;
+    }
+
+    .button {
+        padding: 6px 12px;  /* Even smaller padding */
+    }
+
+    /* Responsive Text Sizes */
+    .title {
+        font-size: 24px; /* Smaller font size for titles on small screens */
+    }
+
+    /* Other component-specific styles */
 }

@@ -27,7 +27,7 @@ const Signup = () => {
             setMessage('User created successfully');
             if (newUser.status === 201) {
                 console.log('User created successfully');
-                navigate('/blogs');
+                navigate('/');
             }
         } catch (e) {
             setMessage('Error creating user: ' + e.message);

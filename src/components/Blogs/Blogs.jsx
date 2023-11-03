@@ -20,10 +20,10 @@ const Blogs = () => {
         } catch (error) {
             console.log(error);
             setError("FAILED_TO_LOAD_POSTS")
-        }finally {
+        } finally {
             setIsLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
 
