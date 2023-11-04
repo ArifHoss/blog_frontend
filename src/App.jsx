@@ -6,12 +6,14 @@ import Blogs from "./components/Blogs/Blogs.jsx";
 import Signup from "./components/signup/Signup.jsx";
 import Login from "./components/LoginLogout/Login.jsx";
 import CreateBlog from "./components/Blogs/CreateBlog.jsx";
-import Profile from "./components/Profile/Profile.jsx";
+import ProfileDetails from "./components/Profile/ProfileDetails.jsx";
 import PleaseLogIn from "./components/LoginLogout/PleaseLogIn.jsx";
 import {AuthContext} from "./components/Api/AuthContext.jsx";
 import Blog from "./components/Blogs/Blog.jsx";
 import UpdateBlog from "./components/Blogs/UpdateBlog.jsx";
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
+import ProfileTabs from "./components/Profile/ProfileTabs.jsx";
+import Unpublished from "./components/Profile/Unpublished.jsx";
 
 function App() {
     const {token, user, loggedIn, userId, setUserId } = useContext(AuthContext);
@@ -40,8 +42,10 @@ function App() {
                 <Route path="/" element={<Blogs/>}/>
                 <Route path="/login" element={!loggedIn ? <Login/> : <Navigate to="/profile"/>}/>
                 <Route path="/signup" element={<Signup/>}/>
-                <Route path="/profile" element={token ? <Profile/> : <PleaseLogIn/>}/>
+                <Route path="/profile" element={token ? <ProfileDetails/> : <PleaseLogIn/>}/>
+                <Route path="/tabs" element={token ? <ProfileTabs/> : <PleaseLogIn/>}/>
                 <Route path="/myblogs" element={<MyBlogs/>}></Route>
+                <Route path="/unpublished" element={<Unpublished/>}></Route>
                 <Route path="/blog/:id" element={<Blog/>}/>
                 <Route path="/updateblog/:id" element={<UpdateBlog/>}/>
             </Routes>

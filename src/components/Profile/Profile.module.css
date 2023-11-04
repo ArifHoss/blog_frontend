@@ -1,60 +1,102 @@
-/* Profile.module.css */
+/*!*ProfileDetails.module.css*!*/
+
+/*.container {*/
+/*  width: 100%;*/
+/*  margin: 0 auto;*/
+/*  padding: 20px;*/
+/*  font-family: Arial, sans-serif;*/
+/*}*/
+
+/*h2 {*/
+/*  font-size: 24px;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*.profile_container {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  align-items: start;*/
+/*  padding: 20px;*/
+/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*h4 {*/
+/*  font-size: 20px;*/
+/*  margin-bottom: 10px;*/
+/*}*/
+
+/*p {*/
+/*  font-size: 16px;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*.button {*/
+/*  border: none;*/
+/*  border-radius: 4px;*/
+/*  background-color: #6a706f;*/
+/*  color: #ffffff;*/
+/*  cursor: pointer;*/
+/*  transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.button:hover {*/
+/*  background-color: #007d6c;*/
+/*}*/
+
+/*button:not(:last-child) {*/
+/*  margin-right: 500px;*/
+/*}*/
+
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
+  margin: 0 auto;
+  padding: 20px;
   font-family: Arial, sans-serif;
 }
 
-.container h2 {
-  color: #4a47a3;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.user_details {
-  background: linear-gradient(135deg, #4a47a3, #8e44ad);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.tabs_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Distributes the tabs evenly */
+  margin-bottom: 20px; /* Space between tabs and profile content */
+}
+
+.profile_container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.button {
+  border: none;
+  border-radius: 4px;
+  background-color: #6a706f;
   color: #ffffff;
-  padding: 1.5rem;
-  width: 80%;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px 20px; /* Added padding for buttons */
 }
 
-.user_details h4 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.button:hover {
+  background-color: #007d6c;
 }
-
-.user_details p {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.token_container {
-  background: linear-gradient(135deg, #3498db, #9b59b6);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  color: #ffffff;
-  padding: 1.5rem;
-  width: 80%;
-}
-
-.token_container h4 {
-  font-size: 1.5rem;
-  word-wrap: break-word;
-}
-button {
-  justify-content: center;
-  padding-left: 100px;
-}
-
-@media (max-width: 768px) {
-  .user_details,
-  .token_container {
-    width: 90%;
-  }
+.active {
+  background-color: rgba(0, 125, 108, 0.75);
 }

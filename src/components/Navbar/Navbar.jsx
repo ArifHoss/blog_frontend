@@ -7,8 +7,19 @@ import Logout from "../LoginLogout/Logout.jsx";
 // eslint-disable-next-line react/prop-types
 const Navbar = () => {
 
-    const { user,loggedIn} = useContext(AuthContext);
-    const parsedUser = JSON.parse(user);
+    const {user,loggedIn} = useContext(AuthContext);
+    let parsedUser = null;
+
+    // Check if user is a valid JSON string before parsing
+    if (user && typeof user === 'string' && user.trim().length > 0) {
+        try {
+            parsedUser = JSON.parse(user);
+        } catch (error) {
+            console.error("Error parsing user data:", error);
+            // Handle error or set a default value for parsedUser if necessary
+        }
+    }
+
 
     return (
         <nav className={classes.navbar}>
@@ -32,7 +43,7 @@ const Navbar = () => {
                         <>
                             <li><Link to="/create">+Create</Link></li>
                             <li><Link to="/">Blogs</Link></li>
-                            <li><Link to="/profile">{parsedUser.first_name} {parsedUser.last_name}</Link></li>
+                            <li><Link to="/tabs">{parsedUser.first_name} {parsedUser.last_name}</Link></li>
                             <li><Logout/></li>
                         </>
                     )}
